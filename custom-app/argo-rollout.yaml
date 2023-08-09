@@ -4,7 +4,7 @@ metadata:
   name: rollouts-demo
   namespace: default
 spec:
-  replicas: 10
+  replicas: 5
   strategy:
     canary:
       canaryService: argo-rollouts-canary-service # our created canary service
@@ -15,13 +15,15 @@ spec:
             httpRoute: argo-rollouts-http-route # our created httproute
             namespace: default
       steps:
-        - setWeight: 30
-        - pause: {}
-        - setWeight: 60
-        - pause: {}
-        - setWeight: 100
-        - pause: {}
-  revisionHistoryLimit: 2
+      steps:
+      - setWeight: 20
+      - pause: {}
+      - setWeight: 40
+      - pause: {duration: 10}
+      - setWeight: 60
+      - pause: {duration: 10}
+      - setWeight: 80
+      - pause: {duration: 10}
   selector:
     matchLabels:
       app: rollouts-demo
