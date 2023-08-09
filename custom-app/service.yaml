@@ -2,9 +2,16 @@ apiVersion: v1
 kind: Service
 metadata:
   name: custom-guestbook-ui
+  namespace: default
 spec:
   ports:
     - port: 80
       targetPort: 80
   selector:
     app: custom-guestbook-ui
+---
+kind: ServiceExport
+apiVersion: net.gke.io/v1
+metadata:
+  name: custom-guestbook-ui
+  namespace: default
