@@ -15,7 +15,6 @@ spec:
             httpRoute: argo-rollouts-http-route # our created httproute
             namespace: default
       steps:
-        - setWeight: 20
         - pause: {}
         - setWeight: 40
         - pause: { duration: 10 }
