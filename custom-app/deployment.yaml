@@ -15,7 +15,7 @@ spec:
         app: custom-guestbook-ui
     spec:
       containers:
-        - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
+        - image: argoproj/rollouts-demo:blue
           name: custom-guestbook-ui
           ports:
-            - containerPort: 80
+            - containerPort: 8080
