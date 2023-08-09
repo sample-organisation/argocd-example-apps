@@ -1,0 +1,31 @@
+kind: Gateway
+apiVersion: gateway.networking.k8s.io/v1beta1
+metadata:
+  name: argo-rollout-external-http
+  namespace: default
+spec:
+  gatewayClassName: gke-l7-global-external-managed-mc
+  listeners:
+    - name: http
+      protocol: HTTP
+      port: 80
+      allowedRoutes:
+        kinds:
+          - kind: HTTPRoute
+---
+kind: HTTPRoute
+apiVersion: gateway.networking.k8s.io/v1beta1
+metadata:
+  name: argo-rollout-external-http-route
+  namespace: default
+  labels:
+    gateway: argo-rollout-external-http
+spec:
+  parentRefs:
+    - name: argo-rollout-external-http
+  rules:
+    - backendRefs:
+        - name: argo-rollouts-stable-service
+          port: 80
+        - name: argo-rollouts-canary-service
+          port: 80

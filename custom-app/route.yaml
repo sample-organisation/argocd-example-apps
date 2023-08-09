@@ -9,13 +9,8 @@ spec:
   parentRefs:
     - name: external-http
   rules:
-    # - backendRefs:
-    #     - group: net.gke.io
-    #       kind: ServiceImport
-    #       name: custom-guestbook-ui
-    #       port: 80
     - backendRefs:
-        - name: argo-rollouts-stable-service
-          port: 80
-        - name: argo-rollouts-canary-service
+        - group: net.gke.io
+          kind: ServiceImport
+          name: custom-guestbook-ui
           port: 80
