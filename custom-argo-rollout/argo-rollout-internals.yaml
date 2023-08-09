@@ -15125,7 +15125,7 @@ spec:
         app.kubernetes.io/name: argo-rollouts
     spec:
       containers:
-        - image: quay.io/argoproj/argo-rollouts:v1.5.1
+        - image: ghcr.io/scriptnull/argo-rollouts:v1.5.1-with-gateway-plugin.1
           imagePullPolicy: Always
           livenessProbe:
             failureThreshold: 3
