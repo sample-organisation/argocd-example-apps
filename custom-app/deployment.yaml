@@ -9,12 +9,10 @@ spec:
   selector:
     matchLabels:
       app: custom-guestbook-ui
-      namespace: default
   template:
     metadata:
       labels:
         app: custom-guestbook-ui
-        namespace: default
     spec:
       containers:
         - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
