@@ -15081,6 +15081,10 @@ metadata:
     app.kubernetes.io/name: argo-rollouts
     app.kubernetes.io/part-of: argo-rollouts
   name: argo-rollouts-config
+data:
+  trafficRouterPlugins: |-
+    - name: "argoproj-labs/gatewayAPI"
+      location: "file:///bin/argo-rollout-gateway-api-plugin"
 ---
 apiVersion: v1
 kind: Secret
