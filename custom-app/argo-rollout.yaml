@@ -18,11 +18,11 @@ spec:
         - setWeight: 20
         - pause: {}
         - setWeight: 40
-        - pause: { duration: 10 }
+        - pause: {}
         - setWeight: 60
-        - pause: { duration: 10 }
+        - pause: {}
         - setWeight: 80
-        - pause: { duration: 10 }
+        - pause: {}
   selector:
     matchLabels:
       app: rollouts-demo
@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
         - name: rollouts-demo
-          image: kostiscodefresh/summer-of-k8s-app:v1
+          image: argoproj/rollouts-demo:blue
           ports:
             - name: http
               containerPort: 8080
