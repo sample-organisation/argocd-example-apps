@@ -12,9 +12,10 @@ spec:
       trafficRouting:
         plugins:
           argoproj-labs/gatewayAPI:
-            httpRoute: argo-rollouts-http-route # our created httproute
+            httpRoute: custom-guestbook-ui-route
             namespace: default
       steps:
+        - setWeight: 20
         - pause: {}
         - setWeight: 40
         - pause: { duration: 10 }
